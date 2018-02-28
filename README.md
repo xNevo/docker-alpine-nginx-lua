@@ -7,15 +7,15 @@ Simple Docker Alpine Nginx image with LUA support
 Either download it from [hub.docker.com](https://hub.docker.com/r/xnevo/alpine-nginx-lua) or build it yourself Download:
 
 ``` 
-docker pull xnevo/docker-alpine-nginx-lua:1.13.7
+docker pull xnevo/docker-alpine-nginx-lua:1.13.9
 OR
-docker pull registry.lumen.sh/lumen/docker-alpine-nginx-lua:1.13.7
+docker pull registry.lumen.sh/lumen/docker-alpine-nginx-lua:1.13.9
 ```
 
 Build from source: 
 
 ``` 
-docker build -t nginx-lua:1.13.7 .
+docker build -t nginx-lua:1.13.9 .
 ```
 
 ## Configuration
@@ -29,13 +29,13 @@ Mount your configuration in the following location in order to apply your nginx 
 Example: 
 
 ``` 
-docker run -it --name nginx-server -d -v /my/configuration:/etc/nginx -p 80:80 -p 443:443 registry.lumen.sh/lumen/docker-alpine-nginx-lua:1.13.7
+docker run -it --rm --name nginx-server -v /my/configuration:/etc/nginx -p 80:80 -p 443:443 registry.lumen.sh/lumen/docker-alpine-nginx-lua:1.13.7
 ```
 
 If you don't have a configuration yet, you can copy nginx's default configuration by running the following commands
 
 ```
-docker run -it --rm --name nginx-temp -d -v /your/config/path:/tmp/nginx registry.lumen.sh/lumen/docker-alpine-nginx-lua:1.13.7 && sleep 2 \
+docker run -it --rm --name nginx-temp -d -v /your/config/path:/tmp/nginx registry.lumen.sh/lumen/docker-alpine-nginx-lua:1.13.9 && sleep 2 \
 && docker exec -it nginx-temp /bin/cp -R /etc/nginx /tmp/ \
 && docker stop nginx-temp
 ```
